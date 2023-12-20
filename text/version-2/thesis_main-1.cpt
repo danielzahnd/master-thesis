@@ -1,0 +1,1 @@
+A basic implementation of an affine coupling layer normalizing flow in the \verb|PyTorch| framework, alongside with two example applications, is given by the author at \url{https://github.com/danielzahnd/master-thesis/tree/main/code/nf-affine-coupling-layer-normalizing-flow}. This code can in principle be applied to any other set of data.\label{footnote:NF_code}^^E^^L 
