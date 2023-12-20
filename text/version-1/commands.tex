@@ -1,0 +1,50 @@
+% Figure caption setup
+\captionsetup{font=footnotesize,labelfont=bf}
+
+% Python code listings
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+% Enumerate style
+\renewcommand{\theenumi}{(\arabic{enumi})}
+\renewcommand\labelenumi{\theenumi} % Change enumerate style from 1. to (1) etc.
+\renewcommand{\theenumiii}{(\arabic{enumiii})}
+\renewcommand\labelenumiii{\theenumiii} % Change enumerate style from 1. to (1) etc.
+\setlist{itemsep = 0.2pt}
+
+% Matrix and vector notation
+\newcommand\matr[1]{\ensuremath{\boldsymbol{\mathbf{#1}}}}
+\newcommand\vect[1]{\ensuremath{\bm{#1}}}
+\newcommand\dint{\ensuremath{\int\displaylimits}}
+
+% Units definitions
+\DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \magnitudes {mag}
+
+% Theorem environment
+\newtheorem{tm}{Theorem}
+\numberwithin{tm}{subsection}
+
+% New tag form
+\newtagform{normalsize}[\normalsize]{\normalsize(}{\normalsize)}
