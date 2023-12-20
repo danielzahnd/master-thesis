@@ -1,0 +1,4 @@
+# nf-milne-eddington-example-3-nflows-piecewisequadratic
+This code experiments with normalizing flows used to invert Milne-Eddington atmospheres. In this case, a dataset of spectra is generated using synthesis of spectra by means of sampling uniformly from a 9-dimensional parameter space and calculating the spectra based on these parameter sets using the Milne-Eddington model. This dataset is then used to train a normalizing flow, which is tested on a test split of the generated data. In the case at hand, all atmospheric parameters were sampled from an interval of realistic dimensions as acquired from real observational data.
+
+Used data for this experiment can be found at [penumbra-formation-maps](https://drive.google.com/drive/folders/1-W3vCJC4gEsQWW0pzwF8PbQ3erE0eGPI?usp=drive_link/) and [sunspot-map](https://drive.google.com/drive/folders/1AM6oA1mLYQ_DtIlSv52aYXDNDTygRQyq?usp=drive_link).
