@@ -775,6 +775,10 @@ def plot_color_plots(data_array, additional_array, hl_pix_vert=None, hl_max_hor=
         ax.set_xticks(x_ticks)
         ax.set_xticklabels(x_ticks_labels.astype(int))
 
+        # Add color bar
+        cbar = fig.colorbar(im, ax=ax)
+        cbar.set_label(units[dim])
+
         if labels is not None:
             ax.set_title('Evolution of ' + labels[dim])
         else:
@@ -786,10 +790,6 @@ def plot_color_plots(data_array, additional_array, hl_pix_vert=None, hl_max_hor=
             ax = axes[dim, 1]
             ax.axhline(y=hl_max_hor, color='red', linestyle='-', linewidth=1)
             ax.axhline(y=hl_min_hor, color='red', linestyle='-', linewidth=1)
-            
-            # Add color bar
-            cbar = fig.colorbar(im, ax=ax)
-            cbar.set_label(units[dim])
 
     # Highlight the specified pixel in the first column
     if hl_pix_vert is not None and hl_max_hor is not None and hl_min_hor is not None:
