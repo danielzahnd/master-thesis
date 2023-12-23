@@ -1099,6 +1099,98 @@ def plot_inversion_results(params1, params2, params3, title1, title2, title3, la
     # Reset font size
     mpl.rcParams['font.size'] = 14
 
+def plot_inversion_results_errors(params1, params2, params3, title1, title2, title3, labels, colorbar_labels, savename=None, samescale=True, cmap='binary'):
+    '''
+    Create colorplots for three arrays of dimension (n, m, 9), where n and m are integer numbers. Visualizes results for inversion
+    done by Milne-Eddington model and the normalizing flow model.
+
+    params1: Array of shape (n, m, 9), denotes results of Milne-Eddington model.
+    params2: Array of shape (n, m, 9), denotes results of normalizing flow model.
+    params3: Array of shape (n, m, 9), denotes results of normalizing flow model.
+    title1: Title for params1.
+    title2: Title for params2.
+    title3: Title for params3.
+    labels: Labels for plots.
+    colorbar_labels: Labels for colorbars.
+    savename: Name for saving, default is None.
+    samescale: If true, the plots for Milne-Eddington and normalizing flow model results are plotted on the same scale.
+    cmap: Colorscheme for plots, default is binary.
+    '''
+    # Set font size
+    mpl.rcParams['font.size'] = 7
+
+    # Create 9 subplots in a 9x4 grid with shared x and y axes
+    fig, axes = plt.subplots(9, 3, figsize=(10, 18), sharex=True, sharey=True, gridspec_kw={'height_ratios': [1] * 9, 'width_ratios': [1, 1, 1]})
+
+    for i in range(0, 9):
+        # Extract plotting data
+        param_data_1 = params1[:, :, i]
+        param_data_2 = params2[:, :, i]
+        param_data_3 = params3[:, :, i]
+
+        if samescale == False:
+            # Create a colorplot for the parameter in column 1
+            im1 = axes[i, 0].imshow(param_data_1, cmap=cmap, aspect='equal')
+            if i == 0:
+                axes[i, 0].set_title(f'\\large {title1}\n\n{labels[i]}', fontsize=9)
+            else:
+                axes[i, 0].set_title(f'{labels[i]}', fontsize=9)
+            cbar1 = fig.colorbar(im1, ax=axes[i, 0], orientation='vertical', label=colorbar_labels[i])
+
+            # Create a colorplot for the parameter in column 2
+            im2 = axes[i, 1].imshow(param_data_2, cmap=cmap, aspect='equal')
+            if i == 0:
+                axes[i, 1].set_title(f'\\large {title2}\n\n{labels[i]}', fontsize=9)
+            else:
+                axes[i, 1].set_title(f'{labels[i]}', fontsize=9)
+            cbar2 = fig.colorbar(im2, ax=axes[i, 1], orientation='vertical', label=colorbar_labels[i])
+
+            # Create a colorplot for the parameter in column 3
+            im3 = axes[i, 2].imshow(param_data_3, cmap=cmap, aspect='equal')
+            if i == 0:
+                axes[i, 2].set_title(f'\\large {title3}\n\n{labels[i]}', fontsize=9)
+            else:
+                axes[i, 2].set_title(f'{labels[i]}', fontsize=9)
+            cbar3 = fig.colorbar(im3, ax=axes[i, 2], orientation='vertical', label=colorbar_labels[i])
+
+        else:
+            # Calculate local minimum and maximum for each set of plots
+            local_min = min(np.min(param_data_1), np.min(param_data_2), np.min(param_data_3))
+            local_max = max(np.max(param_data_1), np.max(param_data_2), np.max(param_data_3))
+
+            # Create a colorplot for the parameter in column 1
+            im1 = axes[i, 0].imshow(param_data_1, cmap=cmap, aspect='equal', vmin=local_min, vmax=local_max)
+            if i == 0:
+                axes[i, 0].set_title(f'\\large {title1}\n\n{labels[i]}', fontsize=9)
+            else:
+                axes[i, 0].set_title(f'{labels[i]}', fontsize=9)
+            cbar1 = fig.colorbar(im1, ax=axes[i, 0], orientation='vertical', label=colorbar_labels[i])
+
+            # Create a colorplot for the parameter in column 2
+            im2 = axes[i, 1].imshow(param_data_2, cmap=cmap, aspect='equal', vmin=local_min, vmax=local_max)
+            if i == 0:
+                axes[i, 1].set_title(f'\\large {title2}\n\n{labels[i]}', fontsize=9)
+            else:
+                axes[i, 1].set_title(f'{labels[i]}', fontsize=9)
+            cbar2 = fig.colorbar(im2, ax=axes[i, 1], orientation='vertical', label=colorbar_labels[i])
+
+            # Create a colorplot for the parameter in column 3
+            im3 = axes[i, 2].imshow(param_data_3, cmap=cmap, aspect='equal', vmin=local_min, vmax=local_max)
+            if i == 0:
+                axes[i, 2].set_title(f'\\large {title3}\n\n{labels[i]}', fontsize=9)
+            else:
+                axes[i, 2].set_title(f'{labels[i]}', fontsize=9)
+            cbar3 = fig.colorbar(im3, ax=axes[i, 2], orientation='vertical', label=colorbar_labels[i])
+
+    # Adjust layout and show plots
+    plt.tight_layout()
+    if savename is not None:
+        plt.savefig(savename)
+    plt.show()
+
+    # Reset font size
+    mpl.rcParams['font.size'] = 14
+
 def plot_inversion_results_seq(params1, params2, params3, params4, title1, title2, title3, title4, labels, colorbar_labels, savename=None, samescale=True, cmap='binary'):
     '''
     Create colorplots for four arrays of dimension (n, m, 9), where n and m are integer numbers. Visualizes results for inversion
