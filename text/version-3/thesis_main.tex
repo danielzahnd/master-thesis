@@ -1339,7 +1339,7 @@ S_1
 \vect{I}_{\lambda_{max}}
 \end{pmatrix},
 \end{equation} where $\vect{I}_\lambda = (I_{\lambda,n} \doteq I_\lambda/I_{\lambda,c}, Q_\lambda/I_{\lambda,n}, U_\lambda/I_{\lambda,n}, V_\lambda/I_{\lambda,n})^\top$ is the Stokes vector containing the four normalized Stokes parameters at wavelength $\lambda$, where $I_{\lambda,n}$ is the normalized intensity using the continuum intensity at wavelength $\lambda$. In the following material, the wavelength dependence index $\lambda$ and the normalization index $n$ will be omitted for simplification purposes, hence the Stokes vector at a specific wavelength $\lambda$ as given above will be just written as $(I, Q/I, U/I, V/I)^\top$. In order to perform inversions of the Milne-Eddington model $\vect{M}$, a diffeomorphic mapping from $p_{\vect{x}}(\vect{x})$ representing the parameter densities to a multidimensional standard normal distribution $p_{\vect{z}}(\vect{z})$ conditioned on observational data represented by the density $p_{\vect{y}}(\vect{y})$ was to be found. This mapping was implemented by a normalizing flow
-\begin{align}\small\begin{aligned}
+\begin{align}\begin{aligned}
 \vect{f}_{\vect{y},\vect{\phi}(\hat{\matr{x}},\hat{\matr{y}})}: \mathbb{R}^{9} \rightarrow \mathbb{R}^{9}, \quad p_{\vect{x}}(\vect{x}) \sim \vect{x} \mapsto \vect{z} = \vect{f}_{\vect{y},\vect{\phi}(\hat{\matr{x}},\hat{\matr{y}})}(\vect{x}) \sim  \mathcal{N}(0,1)^{9}
 \end{aligned}\end{align} using several piecewise quadratic spline coupling layers as specified in \cref{sec:piecewisequadraticspline}. This normalizing flow then allows for the calculation of the posterior probability density $p_{\vect{\phi}(\hat{\matr{x}},\hat{\matr{y}})}(\vect{x}|\vect{y})$ of atmospheric parameters $\vect{x}$ given some observation $\vect{y}$.
 
@@ -1390,7 +1390,7 @@ For this second experiment, frames 0 and 1 of the penumbra formation dataset wer
 \caption{Considered map pixels for performance assessment of the trained normalizing flow for experiment 2.}
 \label{fig:nf-milne-eddington-example-6-considered-map-pixels-nflows-piecewisequadratic}
 \end{figure}
-The considered pixel 1 ($\vect{y}_1$) represents quiet sun conditions. Pixel 2 ($\vect{y}_2$) is located in a forming penumbra, whereas pixel 3 ($\vect{y}_3$) represents a partially developed umbra, while pixel 4 ($\vect{y}_4$) is representative of a fully developed umbra. These four pixels were chosen such that the performance of the trained normalizing flow could be assessed on areas representing the three characteristic structures of the solar atmosphere - the quiet sun, umbra and penumbra structures.
+The considered pixel 1 ($\vect{y}_1$) represents quiet sun conditions. Pixel 2 ($\vect{y}_2$) is located in a forming penumbra, whereas pixel 3 ($\vect{y}_3$) represents a partially developed umbra (a pore), while pixel 4 ($\vect{y}_4$) is representative of a fully developed umbra. These four pixels were chosen such that the performance of the trained normalizing flow could be assessed on areas representing the three characteristic structures of the solar atmosphere - the quiet sun, umbra and penumbra structures.
 
 The results as obtained by the trained normalizing flow were compared to Markov Chain Monte Carlo (MCMC) sampling for the Milne-Eddington inversion process; this was done according to the explanations given in \cref{sec:MCMCsim}.
 
@@ -1427,7 +1427,7 @@ Now on to the peculiarities of individual results. First of all, the Stokes para
 
 The Stokes profiles for the penumbra pixel however show, that there seems to be a non-negligible circular polarization, as Stokes $V/I$ is quite large in magnitude compared to Stokes $Q/I$ and $U/I$ accounting for linear polarization. This is to say, that there should not be a large amount of ambiguity in the results for the inclination and azimuth parameters $\theta$ and $\varphi$. This indeed reflects in the results and can be understood by recalling the sunspot sketch \cref{fig:Sunspotsschematic}. The light originating in the penumbra should be in a well-defined polarization state, since one would expect the magnetic field lines - and therefore also the electric field lines - to be aligned as shown in \cref{fig:Sunspotsschematic}; of course only given, that this sunspot model is correct.
 
-For the weak umbra (observation 3), Stokes $Q/I$ and $V/I$ are roughly of the same magnitude. Again considering the Sunspot model \cref{fig:Sunspotsschematic}, one would expect a magnetic field roughly aligned with the surface normal of the sun, or exactly opposite - this is to say, the inclination $\theta$ would be expected to be either $\theta \approx \SI{0}{\radian}$ or $\theta \approx \pi\,\si{\radian}$. Furthermore, there should not be much ambiguity in the inclination parameter, since given the common sunspot model, the magnetic field at the center of an umbra should either face inwards or outwards of the sun along the surface normal. Both of these things are observed to be the case in the results shown in \cref{fig:nf-milne-eddington-example-6-corner-3-nf-piecewisequadratic-results}; the inclination is indeed approximately half of pi with little uncertainty, meaning that the magnetic field faces towards the solar interior.
+For the weak umbra (pore) (observation 3), Stokes $Q/I$ and $V/I$ are roughly of the same magnitude. Again considering the Sunspot model \cref{fig:Sunspotsschematic}, one would expect a magnetic field roughly aligned with the surface normal of the sun, or exactly opposite - this is to say, the inclination $\theta$ would be expected to be either $\theta \approx \SI{0}{\radian}$ or $\theta \approx \pi\,\si{\radian}$. Furthermore, there should not be much ambiguity in the inclination parameter, since given the common sunspot model, the magnetic field at the center of an umbra or pore should either face inwards or outwards of the sun along the surface normal. Both of these things are observed to be the case in the results shown in \cref{fig:nf-milne-eddington-example-6-corner-3-nf-piecewisequadratic-results}; the inclination is indeed approximately half of pi with little uncertainty, meaning that the magnetic field faces towards the solar interior.
 
 As for the umbra observation, Stokes $Q/I$ and $V/I$ are quite pronounces compared to Stokes $U/I$, meaning that there should not be much ambiguity present in the inclination and azimuth parameters of the magnetic field for this observation. This is actually reflected in the results; what is somewhat surprising is the value of the inclination being about $\theta \approx \SI{2}{\radian}$, rather than half of pi as one would expect for an observation of the magnetic field at the center of an umbra. This discrepancy between expectation and prediction could be explained by the inherent \flqq inaccuracy\frqq\ of the expectation. One cannot expect an umbra observed in reality to follow exactly the model one has of it, rather one must infer the model from the data. While it represents a plausible assumption, that the inclination parameter of the magnetic field is either zero or half of pi for the magnetic field at the center of an umbra, this does not have to be the case exactly.
 
@@ -1507,7 +1507,7 @@ As for closing remarks to this section it shall be mentioned, that two other var
 
 \section{Experiment 3: Multiple map analysis}
 % Experiment 2
-\subsection{Explanation of the experiment}
+\subsection{Explanation of the experiment}\label{sec:explanation_experiment_3}
 As a third experiment, frames 0, 11 and 19 of the penumbra formation dataset were used. Frame 0 was only used for training a normalizing flow, whereas frames 11 and 19 were solely used for assessing the performance of the normalizing flow after training. Therefore, map 0 (frame 0) comprising of the observational data $\hat{\matr{y}}$ was inverted using the Milne-Eddington algorithm, providing the corresponding parameter data $\hat{\matr{x}}$. The dataset consisting of $\hat{\matr{x}}$ and $\hat{\matr{y}}$ was subsequently slit into a train and test splits as usual, on which the normalizing flow was then trained.
 
 Defining frame 11 as test map 1 and frame 19 as test map 2, the trained normalizing flow was the used to invert all observational data contained in these maps. The goal of this experiment comprised of assessing the trained normalizing flow by a direct comparison with Milne-Eddington inversions of the same test maps. The question remains, how the inversion process is actually carried out using the trained normalizing flow. Now, consider some observation $\vect{y}_{p}$ for a certain pixel on a map. Using the trained normalizing flow, the posterior distribution $\vect{x} \sim p_{\vect{\phi}(\hat{\matr{x}},\hat{\matr{y}})}(\vect{x}|\vect{y}_p)$ can be ascertained by taking samples $\vect{z} \sim \mathcal{N}(0,1)^9$ from a multivariate standard normal distribution with diagonal covariance and propagating these samples through the inverse normalizing flow as $\vect{x} = \vect{f}_{\vect{y}_p,\vect{\phi}(\hat{\matr{x}},\hat{\matr{y}})}^{-1}(\vect{z})$, where as always $\hat{\matr{x}}$ and $\hat{\matr{y}}$ denote the training data and $\vect{\phi}(\hat{\matr{x}},\hat{\matr{y}})$ the neural network parameters depending on the training data. This procedure however yields a probability density for all nine atmospheric parameters per observation $\vect{y}_p$. To obtain a single solution to the inversion problem rather than a probability density, the used approach as visualized in \cref{fig:argmax} involved selecting the parameter value with the highest probability as the solution for each atmospheric parameter and observation. The standard deviation of the densities for each parameter were taken as a measure of the uncertainty of inversion, henceforth referred to as the error of the normalizing flow inversions.
@@ -1546,7 +1546,7 @@ The inversion results of test maps 1 and 2 as obtained by the Milne-Eddington al
 \label{fig:nf-milne-eddington-example-2-nflows-piecewisequadratic-comp-ME-NF-testmap2}
 \end{figure}
 
-Considering the magnetic field magnitude $|\vect{B}|$, the errors tend to be higher, where the magnetic field is stronger. For example, the errors are quite high in the pixels pertaining to an umbra, where the magnetic field is strong. Concerning the inclination parameter it is evident, that the errors are highest on the quiet sun regions generally, aswell as in filaments of the forming penumbra located roughly around vertical pixel 220 and horizontal pixel 330. Considering that the electric and magnetic fields in quiet sun regions are not expected to be significantly polarized, it is no surprise that the errors on these regions are quite high, since the normalizing flow hence has difficulties in constraining the resulting probability density for the inclination. Comparing the inclination results with the results for the magnetic field strength one can see, that generally speaking the errors in the inclination results are high, where the magnetic field is weak, relatively speaking. In an umbra for example, the inclination is quite well-defined, whereas for the quiet sun this is not the case. From the inclination results one concludes, that the magnetic field in the prominent umbra of the map faces towards the interior of the sun at $\theta \approx \pi\,\si{\radian}$. 
+Considering the magnetic field magnitude $|\vect{B}|$, the errors tend to be higher, where the magnetic field is stronger. For example, the errors are quite high in the pixels pertaining to an umbra or pore, where the magnetic field is strong. Concerning the inclination parameter it is evident, that the errors are highest on the quiet sun regions generally, aswell as in filaments of the forming penumbra located roughly around vertical pixel 220 and horizontal pixel 330. Considering that the electric and magnetic fields in quiet sun regions are not expected to be significantly polarized, it is no surprise that the errors on these regions are quite high, since the normalizing flow hence has difficulties in constraining the resulting probability density for the inclination. Comparing the inclination results with the results for the magnetic field strength one can see, that generally speaking the errors in the inclination results are high, where the magnetic field is weak, relatively speaking. In an umbra for example, the inclination is quite well-defined, whereas for the quiet sun this is not the case. From the inclination results one concludes, that the magnetic field in the prominent umbra of the map faces towards the interior of the sun at $\theta \approx \pi\,\si{\radian}$. 
 
 A particular peculiarity can be ascertained for the damping parameter $a$; the error for this parameter seems to almost be a copy of Stokes $I$ as visualized in \cref{fig:nf-milne-eddington-example-6-considered-map-pixels-nflows-piecewisequadratic}. Going back to the definitions of this parameter in \cref{eq:Voigt_Profile} and \cref{eq:Faraday_Voigt_Profile} one realizes, that a high value of $a$ means strong damping of spectral lines. Again comparing the error map for parameter $a$ with the magnetic field strength map it becomes clear, that the normalizing flow has difficulties determining the damping parameter $a$, where the magnetic field is strong and where Stokes $I$ is low. The reason for this difficulty is likely explained by the latter, as the profile for Stokes $I$ represents a possible absorption line. If Stokes $I$ however is not sufficiently high, the normalizing flow probably experiences difficulty in assessing what kind of absorption line there is to see, e.g. if it is broad, narrow, pronounced or strongly damped. Likely, the performance of the normalizing flow regarding $a$ could be improved by using more wavelength points for the Stokes profiles.
 
@@ -1558,44 +1558,196 @@ In conclusion however, the normalizing flow seems to have learned how to do Miln
 \section{Experiment 4: Multiple map analysis using a different map for training}
 % Experiment 4
 \subsection{Explanation of the experiment}
-Text.
+The fourth experiment conducted on normalizing flows applied to learn stellar atmosphere inversions is identical to the previous experiment, but with a different training dataset. That is to say, that frames 0, 11 and 19 of the penumbra formation dataset were used as testing maps for the trained normalizing flow, whereas the flow itself was trained on observations and corresponding parameter values of a different active region, namely a frame\footnote{This file can be accessed at \url{https://drive.google.com/drive/folders/1AM6oA1mLYQ_DtIlSv52aYXDNDTygRQyq?usp=drive_link}.} of the active region 13014\footnote{See \url{http://helio.mssl.ucl.ac.uk/helio-vo/solar_activity/arstats/arstats_page5.php?region=13014} for more data on this active region; website last accessed on December 23, 2023.} observed on May 17, 2022. This observation shall be referred to in the following material as the sunspot map. For the remainder of this section, the testing frame shall be called the test map, whereas frames 0, 11, and 19 of the penumbra formation dataset shall be denoted as test map 1, test map 2 and test map 3. The training map also features the Fe I line at the same wavelength points as the test maps. In \cref{fig:nf-milne-eddington-example-4-trainingmap-testingmap-nflows-piecewisequadratic}, a comparison between the training map and one of the testing maps can be seen.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/nf-milne-eddington-example-4-trainingmap-testingmap-nflows-piecewisequadratic.pdf}
+\caption{Comparison between the training map and one of the test maps. Note, that the plots show the normalized Stokes $I$ values at a wavelength of $\lambda_{min} = \SI{6302.2134}{\angstrom}$.}
+\label{fig:nf-milne-eddington-example-4-trainingmap-testingmap-nflows-piecewisequadratic}
+\end{figure}
+The training map consisting the observational data $\hat{\matr{y}}$ was inverted using the Milne-Eddington algorithm, providing the associated parameter data $\hat{\matr{x}}$. The obtained dataset consisting of $\hat{\matr{x}}$ and $\hat{\matr{y}}$ was split into train and test splits, whereon the normalizing flow was subsequently trained. The test split obtained accordingly was solely used in the training process, such that the train and test losses could be analyzed to assess the convergence behaviour of the model. Apart from what was mentioned, the experiment at hand was conducted exactly as experiment 3 explained above in \cref{sec:explanation_experiment_3}.
 
 \subsection{Results, discussion and interpretation of the experiment}
-Text.
-
-\section{Experiment 5: Improving normalizing flow performance by enhancing the training dataset}
-% Experiment 5
-\subsection{Explanation of the experiment}
-Text.
-
-\subsection{Results, discussion and interpretation of the experiment}
-Text.
-
-\section{Experiment 6: Tracking parameter evolution during penumbra formation}
-% Experiment 7
-\subsection{Explanation of the experiment}
-Text.
-
-\subsection{Results, discussion and interpretation of the experiment}
-Text.
+The following results and figures were obtained\footnote{The code which produced the presented results is available at \url{https://github.com/danielzahnd/master-thesis/tree/main/code/nf-milne-eddington-example-4-nflows-piecewisequadratic}.} using a training sample size of $340200$, a testing sample size of $37800$, a batch size of $512$, a hidden layer size of $16$, a coupling layer amount of $5$, a learning rate of $0.001$, a scheduling rate of $0.999$, $10$ epochs to train the flow and randomized splitting of the data into train and test splits. This hyperparameter setting was found by manual inspection and improvement of resulting learning curves.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=10cm]{figures/penumbraformation.pdf}
+\includegraphics[width=8cm]{figures/nf-milne-eddington-example-4-loss-nflows-piecewisequadratic.pdf}
+\caption{Learning curve for experiment 4 of normalizing flows applied to learn Milne-Eddington inversions.}
+\label{fig:nf-milne-eddington-example-4-loss-nflows-piecewisequadratic}
+\end{figure}
+
+A consideration of the train and test loss curves as given for the experiment at hand in \cref{fig:nf-milne-eddington-example-4-loss-nflows-piecewisequadratic} shows, that those curves behave in a desirable way. The train and test loss both converge to a nearly constant value after about 7 epochs with little spacing between one another. Surely, the normalizing flow model could still be improved by increasing the train and test datasets, aswell as fine-tuning the hyperparameters for training; but the model as used in this experiment can be considered as a good start, given the shown train and test loss curves.
+
+The three plots \cref{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap1}, \cref{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap2} and \cref{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap3} show the inversion results of test maps 1, 2 and 3 as obtained by both the Milne-Eddington algorithm aswell as the trained normalizing flow.
+
+A striking first observation would be, that the smoothing property of the normalizing flow seems to be stronger in this case, than in the previously presented case of experiment 3 with the results \cref{fig:nf-milne-eddington-example-2-nflows-piecewisequadratic-comp-ME-NF-testmap1} and \cref{fig:nf-milne-eddington-example-2-nflows-piecewisequadratic-comp-ME-NF-testmap2}. As the smoothing effect results from the probabilistic nature of atmospheric parameter results as obtained by the normalizing flow, the density functions obtained in the case at hand can be expected to be broader and less constrained than in the previous case of experiment 3. This is because in the previous case, the normalizing flow was trained on a very similar variation of data as found in the test maps; but as for the present case, the variation of data in the training dataset deviated more from the one present in the test maps. Consider \cref{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-paramdens-traintest-1} for a visualization of this explanation, where one can see that the variation of training and testing data show deviations.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-paramdens-traintest-1.pdf}
+\caption{Visualization of variations in training and testing data. This plot shows data from the sunspot map as training data; and data of frame 0 (test map 1) from the penumbra formation dataset as testing data.}
+\label{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-paramdens-traintest-1}
+\end{figure} Critical to a good performance of the normalizing flow on the test maps is, that the variation of data in the test maps should be covered by the variation of data in the training map. Regarding the plot \cref{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-paramdens-traintest-1}, one would have some train data, wherever there appears to be some test data in the ideal case. In this ideal case therefore, there should not be any yellow (test data) histogram bars, where one does not have any blue bars (train data). However for the case at hand, this ideal condition does not seem to be met for all data. There is almost no training data for inclination values $\theta$ between $\SI{0}{\radian}$ and roughly $\SI{1}{\radian}$. One can distinguish other parameter ranges, where there is nearly to none training data despite there being test data within these ranges, for example for the damping parameter $a$ and the intensity parameter $S_0$. One can therefore conclude, that the increased smoothing effect compared to the results of experiment 3 might indeed be correlated or even caused by the non-ideal coverage of test data variance by train data variance.
+
+Apart from the stronger smoothing effect as compared to experiment 3, the results seem to be of similar quality, except for the azimuth results. For the azimuth parameter $\varphi$, the normalizing flow in the present case seems to tend to more \flqq extreme\frqq\ solutions. This is to say, that the normalizing flow tends to render even larger solutions for a large true value of $\varphi$, and conversely even lower solutions for low true values of $\varphi$. Furthermore, the smoothing property is particularly strong for the normalizing flow. However, the plot for the errors of the azimuth parameter helps to assess this behaviour. Generally speaking, the error is large, wherever the normalizing flow is seen to perform bad as compared to the \flqq true\frqq\ solution as given by the Milne-Eddington model. A possible explanation for this behaviour might be, that the azimuth predictions are somehow correlated by the normalizing flow with the inclination parameter, where the coverage of test data by the train data is not ideal. But apart from this suggestion, the author however does not have any conclusive explanation to offer for why the flow does not perform very well on the azimuth parameter; further investigation would be needed to answer that question. A possible experiment to resolve this would be to train the normalizing flow on a dataset with better coverage of the inclination parameter $\theta$.
+
+For final remarks to this section, note that the normalizing flow in the present case seems surprisingly to perform better on the line strength parameter $\eta_0$. The smoothing property of the flow appears to be not as strong as for experiment 3; and the flow was able to identify more areas of strong line strength. As for the peculiar behaviour of the azimuth parameter, the author cannot offer a conclusive explanation for this at present stage.
+
+\begin{figure}
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap1.pdf}
+\caption{Inversion results for test map 1 (frame 0 of the penumbra formation dataset).}
+\label{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap2.pdf}
+\caption{Inversion results for test map 2 (frame 11 of the penumbra formation dataset).}
+\label{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap3.pdf}
+\caption{Inversion results for test map 3 (frame 19 of the penumbra formation dataset).}
+\label{fig:nf-milne-eddington-example-4-nflows-piecewisequadratic-comp-ME-NF-testmap3}
+\end{figure}
+
+Consider the approach of using Stokes profile data and the associated atmospheric parameters obtained by using a potentially complex inversion algorithm to train a normalizing flow, and subsequently applying it for inversion purposes on other arbitrary Stokes profile observational data of the same wavelengths featuring roughly similar structures as seen in the training data. If such an approach would succeed, normalizing flows could turn out to be a very useful tool for accelerating stellar atmospheric inversions for researchers in solar and stellar physics. The goal of the experiment as presented here was to show, if this approach could be worthwhile or not. In conclusion, the results for the simple approach as presented here can indeed be regarded as evidence, that a more general approach involving more complex inversion algorithms to be learned by a normalizing flow could be a valuable tool not only for accelerating stellar atmospheric inversions, but also to gain insight into uncertainties of the obtained inversion solutions.
+
+\FloatBarrier
+\section{Experiment 5: Improving normalizing flow performance by enhancing the training dataset}
+% Experiment 5
+\subsection{Explanation of the experiment}
+It was suggested in the comments for several prior experiments, that increasing the training dataset and especially the variance within in it could improve the performance of a normalizing flow on new, unseen data. Hence, the experiment underlying this section was dedicated to explore this approach, by iteratively increasing the training dataset, while the testing dataset remained the same throughout the experimentation process.
+
+This experiment consisted of training and evaluating three normalizing flow models. The first normalizing flow model was trained on the observational data $\hat{\matr{y}}$ and associated parameter data $\hat{\matr{x}}$ obtained from frame 0 of the penumbra formation dataset. The second normalizing flow model was trained on observational data and associated parameter data from both frame 0 and frame 1; furthermore, the third flow model was trained on frames 0, 1, and 2. All of these three normalizing flow models were subsequently evaluated on the last frame (frame 19) of the penumbra formation dataset. This is to say, that the trained normalizing flows were used to invert the observational data of frame 19 as explained in \cref{sec:explanation_experiment_3}, which made a comparison by the \flqq true\frqq\ inversion results obtained by the Milne-Eddington algorithm possible.
+
+\subsection{Results, discussion and interpretation of the experiment}
+The following results and figures were obtained\footnote{The code which produced the presented results is available at \url{https://github.com/danielzahnd/master-thesis/tree/main/code/nf-milne-eddington-example-5-nflows-piecewisequadratic}.} using a training sample sizes of $297000$, $594000$, $891000$, testing sample sizes of $33000$, $66000$, $99000$, a batch size of $512$, a hidden layer size of $16$, a coupling layer amount of $5$, a learning rate of $0.001$, a scheduling rate of $0.999$, $10$ epochs to train the flow and randomized splitting of the data into train and test splits. These hyperparameter settings were found by manual inspection and improvement of resulting learning curves.
+
+In \cref{fig:nf-milne-eddington-example-5-loss-nflows-piecewisequadratic}, the learning curves for all three cases (training on one map, training on two maps, training on three maps) are visualized.
+\begin{figure}[h]
+\centering
+\begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/nf-milne-eddington-example-5-loss-1train-nflows-piecewisequadratic.pdf}
+    \caption{Learning curve for experiment 5, normalizing flow trained on one map.}
+    \label{fig:nf-milne-eddington-example-5-loss-1train-nflows-piecewisequadratic}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/nf-milne-eddington-example-5-loss-2train-nflows-piecewisequadratic.pdf}
+    \caption{Learning curve for experiment 5, normalizing flow trained on two maps.}
+    \label{fig:nf-milne-eddington-example-5-loss-2train-nflows-piecewisequadratic}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/nf-milne-eddington-example-5-loss-3train-nflows-piecewisequadratic.pdf}
+    \caption{Learning curve for experiment 5, normalizing flow trained on three maps.}
+    \label{fig:nf-milne-eddington-example-5-loss-3train-nflows-piecewisequadratic}
+\end{subfigure}
+\caption{Learning curves pertaining to experiment 5.}
+\label{fig:nf-milne-eddington-example-5-loss-nflows-piecewisequadratic}
+\end{figure}
+The train and test losses appear to exhibit a desirable behaviour, with exception of the curves for training on two maps (\cref{fig:nf-milne-eddington-example-5-loss-2train-nflows-piecewisequadratic}). There, the train and test losses do converge to a stable value after several epochs, but remain at quite a large gap to one another, which is to be identified as a sign of possible overfitting. However, it might also just be the case, that the test split was underrepresentative in this case, leading to the only small improvement of the test loss over all epochs. Possibly, the learning curves for this case would improve, if the test split would encompass $\nicefrac{1}{5}$ of the whole training dataset, rather than just $\nicefrac{1}{10}$ as in the present case.
+
+In \cref{fig:nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-map19}, one can find the results of this experiment for all three cases. As an overall observation it can be stated, that the smoothing property of the normalizing flow indeed does decrease with increasing size (and variation) of the training dataset. Take for example the line strength parameter $\eta_0$; for this parameter, the normalizing flow results clearly improve with increasing training dataset size as compared to the Milne-Eddington solution. The same can be observed for the magnetic field strength $|\vect{B}|$, inclination $\theta$ and damping $a$ parameters, although not as strongly as for the line strength $\eta_0$. For the other atmospheric parameters, the normalizing flow performance does not seem to improve significantly. Concluding on the findings from this experiment so far it can be stated, that herewith credible evidence is provided for the earlier suggestion, that increasing the size and possibly variance of the training dataset is likely to improve the normalizing flow performance.
+
+A further comment is to be made about the error development of the inversion results as depicted in \cref{fig:nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-errors}. What can be seen there is that the plots appear to become sharper from left to right. So, white areas tend to become whiter, and black areas tend to become darker as more data is included for training. This means, that for most areas on the maps the obtained probability densities for the parameters become narrower as the training data amount and possibly variation increase, hence the uncertainty calculated as the standard deviations of those densities decrease. This observation corresponds with the expectations; with increasing size and variance in the training dataset, one expects the normalizing flow to learn to better constrain the possible solutions for atmospheric parameters, resulting in a narrowing of the probability densities of the parameters. There are however some areas, where the error appears to be increasing as the training data amount increases, for example the errors for the magnetic field strength $|\vect{B}|$ at and around umbra and pore structures in the map. A similar behaviour can also be detected with the other atmospheric parameters. This might be connected with the fact, that with increasing variance in the training dataset the normalizing flow could learn, that some parameter distribution $x \sim p_x(x)$ might be multimodal, hence giving a larger standard deviation than for an unimodal density. This reasoning is visualized in \cref{fig:unimodal_multimodal}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth-3cm]{figures/unimodal_multimodal.pdf}
+\caption{Visualization of the principle, that the standard variation $\sigma$ of a multimodal probability density is larger than that of an unimodal one, even if the multiple modes are sharply peaked - as long as the multiple peaks are sufficiently separated.}
+\label{fig:unimodal_multimodal}
+\end{figure}
+If this were true, this should reflect for example in the error for the inclination values $\theta$ in and near umbras, since the magnetic field there can be expected to be more or less exactly either directed towards or away from the observer, considering the sunspot model as shown in \cref{fig:Sunspotsschematic}. Analyzing the error plots \cref{fig:nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-errors}, this truly seems to be the case; so this might be evidence for the suggested explanation.
+\begin{figure}[h]
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-map19.pdf}
+\caption{Inversion results as obtained from a normalizing flow trained on either one, two or three maps for experiment 5.}
+\label{fig:nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-map19}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-errors.pdf}
+\caption{Inversion error results as obtained from a normalizing flow trained on either one, two or three maps for experiment 5.}
+\label{fig:nf-milne-eddington-example-5-nflows-piecewisequadratic-comp-ME-NF-errors}
+\end{figure}
+
+It has been shown in the experiment underlying this section, that in the context of stellar atmosphere inversion increasing the variance and amount of data used for training indeed improves the performance of the trained normalizing flow on new data.
+
+\FloatBarrier
+\section{Experiment 6: Tracking parameter evolution during penumbra formation}
+% Experiment 7
+\subsection{Explanation of the experiment}
+This final experiment for the thesis at hand is concerned with the evolution of the atmospheric parameters as inferred from inversion of all maps from the penumbra formation dataset. In this case, the observational data $\hat{\matr{y}}$ was inverted using the Milne-Eddington model, thus obtaining the corresponding atmospheric parameters $\hat{\matr{x}}$. The normalizing flow was then trained on this data, whereupon the trained flow was used to invert all observational data from subsequent frames as explained in \cref{sec:explanation_experiment_3}. This experiment particularly focused on the evolution of atmospheric parameters in the area of the red rectangle as given in \cref{fig:nf-milne-eddington-example-7-considered-map-section-nflows-piecewisequadratic}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{figures/nf-milne-eddington-example-7-considered-map-section-nflows-piecewisequadratic.pdf}
+\caption{The area of particular interest for atmospheric parameter evolution during penumbra formation is indicated by the red rectangle. From frame 0 to frame 19 of the penumbra formation dataset, a penumbra can be observed to form in this region.}
+\label{fig:nf-milne-eddington-example-7-considered-map-section-nflows-piecewisequadratic}
+\end{figure}
+
+\subsection{Results, discussion and interpretation of the experiment}
+The following results and figures were obtained\footnote{The code which produced the presented results is available at \url{https://github.com/danielzahnd/master-thesis/tree/main/code/nf-milne-eddington-example-7-nflows-piecewisequadratic}.} using a training sample size of $297000$, a testing sample size of $33000$, a batch size of $512$, a hidden layer size of $16$, a coupling layer amount of $5$, a learning rate of $0.001$, a scheduling rate of $0.999$, $10$ epochs to train the flow and randomized splitting of the data into train and test splits. This hyperparameter setting was found by manual inspection and improvement of resulting learning curves.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{figures/nf-milne-eddington-example-7-loss-nflows-piecewisequadratic.pdf}
+\caption{Learning curve for experiment 7 of normalizing flows applied to learn Milne-Eddington inversions.}
+\label{fig:nf-milne-eddington-example-7-loss-nflows-piecewisequadratic}
+\end{figure}
+
+The train and test loss curves as shown in \cref{fig:nf-milne-eddington-example-7-loss-nflows-piecewisequadratic} show a desirable convergence behaviour. However, there remains a slight gap between train and test loss after 10 epochs. This gap might be reduced by increasing the variance and overall data amount in the training data and furthermore fine-tuning the hyperparameters. However, the normalizing flow model as used in this experiment appears to have an at least satisfactory convergence behaviour to gain some insight into the parameter evolution of the penumbra formation dataset.
+
+The inversion and corresponding parameter evolution results obtained by the trained normalizing flow are shown in the two figures \cref{fig:nf-milne-eddington-example-7-evolution1-nflows-piecewisequadratic} and \cref{fig:nf-milne-eddington-example-7-evolution2-nflows-piecewisequadratic}. In \cref{fig:nf-milne-eddington-example-7-evolution1-nflows-piecewisequadratic}, there are two columns; the first column shows the inversion results of the first frame of the penumbra formation dataset for each of the nine atmospheric parameters. The second column however shows the evolution of the atmospheric parameters within the slit of pixels indicated by the vertical red line in the plots of the first column, which is situated at the horizontal coordinate where the penumbra begins to form. The horizontal red lines are a visual aid to constrain the area of vertical coordinates, where the penumbra forms with evolving time. The vertical line of pixels between the two horizontal red lines shall be referred to as the considered vertical slit portion in the following comments. The magnetic field strength $|\vect{B}|$ appears to become more homogeneous within the considered vertical coordinates over time, the same seems to happen with the inclination parameter $\theta$. Initially, there are some areas where the inclination is about $\SI{3}{\radian}$ in contrast to the more common inclination value of roughly $\SI{2}{\radian}$ in considered vertical slit portion. With evolving time, the inclination seems to equilibrate to a value of roughly $\SI{2}{\radian}$, which is about $\ang{115}$. This is to say, that the magnetic field at the end of the considered time window and in the considered vertical slit position has an almost homogeneous angle of $\ang{115}$ degrees with respect to line of sight, which matches the expectations considering the sketched penumbra formation model given in \cref{fig:penumbraformation}, recalling that this means magnetic field lines exactly inverse to the direction as shown the figure.
+\begin{figure}[h]
+\centering
+\includegraphics[width=11cm]{figures/penumbraformation.pdf}
 \caption{Schematic of what is expected to happen to the magnetic field lines during the penumbra formation process. Note, that the magnetic field lines as drawn here could also be oriented exactly opposite, i.e. facing towards the Sun's interior.}
 \label{fig:penumbraformation}
 \end{figure}
+The azimuth parameter in the considered vertical slit portion initially shows some pixels around vertical pixel 175 to have an azimuth of roughly $\SI{0.2}{\radian}$, while most other pixels have a azimuth value of up to $\SI{3}{\radian}$ or more. Within the considered vertical slit portion therefore, the magnetic field has an azimuth value roughly in the range $\varphi \in [\ang{11}, \ang{172}]$. Given that the azimuth angle $\varphi$ is measured clockwise from solar north having $\varphi=0$, this is also matching the expectations, since there is a penumbra-developing pore (umbra) located around horizontal pixel 390 and vertical pixel 250. Umbra and penumbra together form a sunspot; hence again recalling the sunspot model as given in \cref{fig:Sunspotsschematic}, one would expect the magnetic field to have an azimuth value in the second quadrant, given magnetic field lines pointing towards the Sun's interior, as it is the case. Corresponding to the second quadrant is the fourth quadrant, as the azimutal range only goes from $\SI{0}{\radian}$ to $\pi\,\si{\radian}$ in theory. As can be seen from the plot, the expectation is hence indeed met by the results. Towards the end of the considered time window, the fluctuation in azimutal values for the magnetic field has equilibrated. The line of sight velocity $v_{los}$ shows a spike in the considered vertical slit portion around maps 5 to 8, indicating some plasma located around vertical pixel 150 is ejected towards the observer during that time, judging by the relative speeds as compared to other areas in the slit. This effect accordingly also reflects in the Doppler shift $\Delta \lambda_D$ of the observed Fe I spectral line. It is to be considered as at least interesting, that the spike in $v_{los}$ occurs as soon as the azimuth $\varphi$ quite rapidly changes from roughly $\SI{0.2}{\radian}$ to around $\SI{2.8}{\radian}$ at vertical pixels around 175 - exactly where the spike in $v_{los}$ occurs. It might therefore be, that the spike in $v_{los}$ is causally related or at least correlated to mentioned rapid change of $\varphi$. The evolution of the other atmospheric parameters are left uncommented, as the author cannot provide any conclusive explanations for the observed behaviour at present stage.
 
+\begin{figure}[h]
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-7-evolution1-nflows-piecewisequadratic.pdf}
+\caption{Inversion results concerning atmospheric parameter evolution in the penumbra formation dataset as obtained by a trained normalizing flow for experiment 6.}
+\label{fig:nf-milne-eddington-example-7-evolution1-nflows-piecewisequadratic}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=\textheight-1cm]{figures/nf-milne-eddington-example-7-evolution2-nflows-piecewisequadratic.pdf}
+\caption{Inversion results concerning atmospheric parameter evolution and associated errors in the penumbra formation dataset as obtained by a trained normalizing flow for experiment 6.}
+\label{fig:nf-milne-eddington-example-7-evolution2-nflows-piecewisequadratic}
+\end{figure}
+
+Moving on to an examination of \cref{fig:nf-milne-eddington-example-7-evolution2-nflows-piecewisequadratic}, an explanation of the plot is in order. The inversion results for the first frame of the penumbra formation dataset are again plotted in the first column, accompanied by a red rectangle. This red rectangle encompasses the area, where the penumbra is observed to form as time evolves. In order to track the parameter evolution in this area of interest, for each one of the nine atmospheric parameters the mean values for each row in the red rectangle was calculated. The two columns on the right of the plot hence show the results of these calculations. The values plotted in the far right column of \cref{fig:nf-milne-eddington-example-7-evolution2-nflows-piecewisequadratic} were obtained by averaging over every row of beforehand obtained errors in the red rectangle. The above explained behaviour of the azimutal parameter $\varphi$, the line of sight velocity $v_{los}$ and Doppler shift $\Delta \lambda_D$ is found confirmed. The initial disturbance in azimutal values around vertical pixel 156 to 175 however is associated to a quite large error of magnitude up to roughly $\SI{0.8}{\radian}$, therefore there might not even be a disturbance in truth, as it could be explained away by the large error. 
+
+Concerning the inclination $\theta$, one observes that going out from the center of the umbra towards the penumbra (from higher to lower vertical pixel in the red rectangle), the inclination decreases from around $\theta \approx \SI{2.4}{\radian} \approx \ang{138}$ at the center of the umbra to $\theta \approx \SI{1.6}{\radian} \approx \ang{92}$ in the penumbra. With reference to \cref{fig:penumbraformation}, this is exactly what one would expect the inclination to do for the considered red rectangle. Moreover, the evolution of this gradient seems to evolve such, that the inclination slightly decreases for the areas located more towards the penumbra than the umbra. This means, that the magnetic field at the boundary of an umbra (pore) initially at an angle of $\theta \approx \pi\,\si{\radian}$ with respect to line of sight gets flatter with respect to the surface of the sun with evolving time, as it is sketched in \cref{fig:penumbraformation}. Eventually, if the magnetic field around the umbra gets flat enough with respect to the photospheric surface, the penumbra begins to form. It can be considered as a success, that the normalizing flow is apparently able to capture these effects.
+
+Another interesting observation one can make about \cref{fig:nf-milne-eddington-example-7-evolution2-nflows-piecewisequadratic} is that the magnetic field strength $|\vect{B}|$ tends to slightly decrease just at the boundary region of the umbra (pore) over time. Furthermore, the plots show the line strength parameter $\eta_0$ to get much stronger in areas, where the penumbra forms. At present time, the author however cannot provide any insightful explanation to these observations, aswell as to the evolution of the atmospheric parameters not discussed here.
+
+In conclusion, normalizing flows have been shown to capture important features of penumbra formation physics, especially concerning magnetic field parameters. Herewith, additional evidence for the usefulness of normalizing flows for stellar atmospheric inversions is provided.
+
+\FloatBarrier
 \chapter{Conclusions}
-Text.
+In this last chapter, the main conclusions from the beforehand discussed material shall be recalled, developed and presented.
 
+\FloatBarrier
 \chapter{Appendix}
 \section{Calculating a posterior probability density function}\label{sec:MCMCsim}
 Suppose, one has some data $\vect{x}\in \mathbb{R}^d$ and corresponding data $\vect{y} \in \mathbb{R}^D$ connected to one another by a model $\vect{y} = \vect{M}(\vect{x})$, where $d,D \in\mathbb{N}$. Furthermore, assume that $\vect{x}$ and $\vect{y}$ follow the probability density functions $\vect{x} \sim p(\vect{x})$ and $\vect{y} \sim p(\vect{y})$. Given the Bayes theorem \begin{align}\begin{aligned}
 p(\vect{x}|\vect{y}) = \frac{p(\vect{y}|\vect{x})p(\vect{x})}{p(\vect{y})} = \frac{p(\vect{y}|\vect{x})p(\vect{x})}{\int_{\mathbb{R}^d} p(\vect{y}|\vect{x})p(\vect{x}) \,\mathrm{d}\vect{x}},
 \end{aligned}\end{align} one can in principle sample from the posterior density function of $\vect{x}$ conditioned on $\vect{y}$, if both the likelihood density function $p(\vect{y}|\vect{x})$ and the prior density function $p(\vect{x})$ are known.
 
-If one knows $p(\vect{x})$ or makes a credible assumption for it, one can sample $L\in \mathbb{N}$ datapoints $\{\vect{x}_{1},\dots,\vect{x}_{L}\}$ from it. For the likelihood density function, one oftentimes takes a Gaussian distribution with mean $\vect{M}(\vect{x})$ and standard deviation $\sigma$ as an Ansatz, namely \begin{equation}
+If one knows $p(\vect{x})$ or makes a credible assumption for it, one can sample $L\in \mathbb{N}$ datapoints $\{\vect{x}_{1},\dots,\vect{x}_{L}\}$ from it. For the likelihood density function, one oftentimes takes a Gaussian distribution with mean $\vect{M}(\vect{x})$, standard deviation $\sigma$ and a diagonal covariance matrix as an Ansatz, namely \begin{equation}
 p(\vect{y}|\vect{x}) = \frac{1}{\sqrt{(2\pi\sigma^2)^D}}\exp\left(-\frac{\| \vect{y}-\vect{M}(\vect{x})\|^2}{2\sigma^2}\right).
 \end{equation} Hereby, the components of $\vect{x}$ are assumed not being correlated with one another, which is the case with the components of $\vect{x}$ being independent parameters of the model $\vect{M}$. If there are $L \in \mathbb{N}$ samples $\{\vect{x}_{1},\dots,\vect{x}_{L}\}$ taken from the prior $p(\vect{x})$, one can write the posterior probability density $p(\vect{x}_k|\vect{y}_k)$ for any $k \in \{1,\dots,L\}$ as \begin{align}\small\begin{aligned}
 p(\vect{x}_{k}|\vect{y}_{k}) = \frac{p(\vect{y}_k|\vect{x}_k)p(\vect{x}_k)}{\sum_{j=1}^L p(\vect{y}_k|\vect{x}_j)p(\vect{x}_j)} = \frac{\exp\left(-\frac{\| \vect{y}_k-\vect{M}(\vect{x}_k)\|^2}{2\sigma^2}\right)p(\vect{x}_k)}{\sum_{j=1}^L \exp\left(-\frac{\| \vect{y}_k-\vect{M}(\vect{x}_j)\|^2}{2\sigma^2}\right)p(\vect{x}_j)},
@@ -1683,7 +1835,7 @@ The sampling process needed to obtain a posterior density close to the true one,
 % see summary statistical methods, explain usage for posterior calculation
 
 \chapter*{Acknowledgments}
-I would like to express my sincere gratitude to Prof. Dr. Lucia Kleint for accepting me as a master's student and allowing me to write a thesis on the fascinating topics of solar physics and machine learning. Through the process of researching and writing the master's thesis, as well as her continuous support, guidance, and encouragement, I have learned a great deal. I would also like to sincerely thank Jonas Zbinden for the many valuable ideas he contributed to my master's thesis and for answering my questions. Additionally, I want to express my gratitude to my parents, who initially provided financial support and later, most importantly, emotional support throughout my extended educational journey.
+I would like to express my sincere gratitude to Prof. Dr. Lucia Kleint for accepting me as a master's student and allowing me to write a thesis on the fascinating topics of solar physics and machine learning. Through the process of researching and writing the master's thesis, as well as her continuous support, guidance, and encouragement, I have learned a great deal. I would also like to sincerely thank Jonas Zbinden for the many valuable ideas he contributed to my master's thesis, for answering my questions and for preparing many of the datasets I used in my thesis. Additionally, I want to express my gratitude to my parents, who initially provided financial support and later, most importantly, emotional support throughout my extended educational journey.
 
 However, mighty thanks are reserved for my loving wife, Regula. Without her continuous encouragement during the master's thesis and, more broadly, throughout my studies and life, this work would not have been possible and I would never be in such a privileged stage of life as I am now. Through her loving support, I not only found the energy and strength to persevere in my studies but, more importantly, I was able to grow and mature personally, aswell as a couple together with her.
 

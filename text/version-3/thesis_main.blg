@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis_main.aux
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Database file #1: references.bib
+Warning--entry type for "nflows" isn't style-file defined
+--line 29 of file references.bib
+Repeated entry---line 120 of file references.bib
+ : @book{Rutten.2015
+ :                  ,
+I'm skipping whatever remains of this entry
+Warning--empty publisher in Rutten.2015
+You've used 16 entries,
+            1935 wiz_defined-function locations,
+            585 strings with 6201 characters,
+and the built_in function-call counts, 5114 in all, are:
+= -- 490
+> -- 188
+< -- 11
++ -- 64
+- -- 60
+* -- 395
+:= -- 949
+add.period$ -- 49
+call.type$ -- 16
+change.case$ -- 104
+chr.to.int$ -- 16
+cite$ -- 17
+duplicate$ -- 216
+empty$ -- 366
+format.name$ -- 76
+if$ -- 985
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 24
+newline$ -- 80
+num.names$ -- 48
+pop$ -- 103
+preamble$ -- 1
+purify$ -- 110
+quote$ -- 0
+skip$ -- 157
+stack$ -- 0
+substring$ -- 251
+swap$ -- 16
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 76
+warning$ -- 1
+while$ -- 36
+width$ -- 0
+write$ -- 207
+(There was 1 error message)
