@@ -1,4 +1,4 @@
-# nf-milne-eddington-example-7-nflows-piecewisequadratic
+# nf-milne-eddington-example-7-nflows-piecewisequadratic (experiment 6)
 This code experiments with normalizing flows used to invert Milne-Eddington atmospheres. In this case, a series of penumbra formation maps (Stokes parameters at different wavelengths for each pixel) is considered. This dataset contains maps of a certain FOV at different times to track the evolution of a penumbra in a sunspot. A normalizing flow is trained on the first map in this dataset and used to invert all other subsequent maps using the trained normalizing flow. The goal of this experiment is to gain insights into the evolution of the Milne-Eddington parameters during a penumbra formation.
 
 Used data for this experiment can be found at [penumbra-formation-maps](https://drive.google.com/drive/folders/1-W3vCJC4gEsQWW0pzwF8PbQ3erE0eGPI?usp=drive_link/), [sunspot-map](https://drive.google.com/drive/folders/1AM6oA1mLYQ_DtIlSv52aYXDNDTygRQyq?usp=drive_link) and [nf-milne-eddington-example-7-nflows-piecewisequadratic](https://drive.google.com/drive/folders/1K9pyls88DoU9_cDIGcNPVPb0rMm0QR4S?usp=drive_link).
