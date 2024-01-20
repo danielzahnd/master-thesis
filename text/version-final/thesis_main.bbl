@@ -1,0 +1,132 @@
+\begin{thebibliography}{}
+
+\bibitem[Amini, 2023]{Amini.2023}
+Amini, A. (2023).
+\newblock {\em Introduction to Deep Learning - Lecture notes}.
+\newblock Massachusetts Institute of Technology.
+
+\bibitem[Blei et~al., 2017]{Blei.2017}
+Blei, D.~M., Kucukelbir, A., and McAuliffe, J.~D. (2017).
+\newblock Variational inference: A review for statisticians.
+\newblock {\em Journal of the American Statistical Association},
+  112(518):859--877.
+
+\bibitem[de~{La Cruz Rodr{\'i}guez}, 2019]{LaCruzRodriguez.2019}
+de~{La Cruz Rodr{\'i}guez}, J. (2019).
+\newblock A method for global inversion of multi-resolution solar data.
+\newblock {\em Astronomy {\&} Astrophysics}, 631:A153.
+
+\bibitem[Degl'Innocenti, 2005]{DeglInnocenti.2005}
+Degl'Innocenti, E.~L. (2005).
+\newblock {\em Polarization in Spectral Lines}, volume 307 of {\em Springer
+  eBook Collection Physics and Astronomy}.
+\newblock {Springer Netherlands}, Dordrecht.
+
+\bibitem[Deisenroth et~al., 2020]{Deisenroth.2020}
+Deisenroth, M.~P., Faisal, A.~A., and Ong, C.~S. (2020).
+\newblock {\em Mathematics for machine learning}.
+\newblock {Cambridge University Press}, Cambridge and New York, NY and Port
+  Melbourne and New Delhi and Singapore.
+
+\bibitem[{del Toro Iniesta}, 2003]{delToroIniesta.2003}
+{del Toro Iniesta}, J.~C. (2003).
+\newblock {\em Introduction to Spectropolarimetry}.
+\newblock {Cambridge University Press}, Cambridge.
+
+\bibitem[{D{\'i}az Baso} et~al., 2022]{DiazBaso.2022}
+{D{\'i}az Baso}, C.~J., {Asensio Ramos}, A., and de~{La Cruz Rodr{\'i}guez}, J.
+  (2022).
+\newblock Bayesian stokes inversion with normalizing flows.
+\newblock {\em Astronomy {\&} Astrophysics}, 659:A165.
+
+\bibitem[Dinh et~al., 2016]{Dinh.27.05.2016}
+Dinh, L., Sohl-Dickstein, J., and Bengio, S. (2016).
+\newblock Density estimation using real nvp.
+
+\bibitem[Durkan et~al., 2019]{Durkan.10.06.2019}
+Durkan, C., Bekasov, A., Murray, I., and Papamakarios, G. (2019).
+\newblock Neural spline flows.
+
+\bibitem[Durkan et~al., 2020]{nflows}
+Durkan, C., Bekasov, A., Murray, I., and Papamakarios, G. (2020).
+\newblock {nflows}: normalizing flows in {PyTorch}.
+
+\bibitem[Goodfellow et~al., 2016]{Goodfellow.2016}
+Goodfellow, I., Courville, A., and Bengio, Y. (2016).
+\newblock {\em Deep learning}.
+\newblock Adaptive computation and machine learning. {The MIT Press},
+  Cambridge, Massachusetts.
+
+\bibitem[Kobyzev et~al., 2021]{Kobyzev.2021}
+Kobyzev, I., Prince, S. J.~D., and Brubaker, M.~A. (2021).
+\newblock Normalizing flows: An introduction and review of current methods.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  43(11):3964--3979.
+
+\bibitem[LeCun et~al., 1998]{lecun-gradientbased-learning-applied-1998}
+LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998).
+\newblock Gradient-based learning applied to document recognition.
+\newblock In {\em Proceedings of the IEEE}, volume~86, pages 2278--2324.
+
+\bibitem[Liou, 2002]{Liou.2002}
+Liou, K.-N. (2002).
+\newblock {\em An introduction to atmospheric radiation}, volume v. 84 of {\em
+  International geophysics series}.
+\newblock {Academic Press}, Amsterdam and Boston, 2nd ed. edition.
+
+\bibitem[Mitchell, 1997]{Mitchell.1997}
+Mitchell, T.~M. (1997).
+\newblock {\em Machine learning}.
+\newblock McGraw-Hill international editions. McGraw-Hill, New York, NY,
+  international ed. edition.
+
+\bibitem[OpenAI, 2023]{ChatGPT}
+OpenAI (2023).
+\newblock {ChatGPT: This large-scale generative language model was used to
+  draft plotting functions used in the thesis at hand, aswell as to rephrase
+  some sentences in the abstract and acknowledgments sections.}
+
+\bibitem[Raschka, 2022]{Raschka.2022}
+Raschka, S. (2022).
+\newblock {\em Machine Learning with PyTorch and Scikit-Learn: Develop machine
+  learning and deep learning models with Python}.
+\newblock {Packt Publishing Limited}, Birmingham, 1 edition.
+
+\bibitem[Rezaei et~al., 2012]{Rezaei.2012}
+Rezaei, R., {Bello Gonzlez}, N., and Schlichenmaier, R. (2012).
+\newblock The formation of sunspot penumbra.
+\newblock {\em Astronomy {\&} Astrophysics}, 537:A19.
+
+\bibitem[Rezende and Mohamed, 2015]{Rezende.21.05.2015}
+Rezende, D.~J. and Mohamed, S. (2015).
+\newblock Variational inference with normalizing flows.
+
+\bibitem[Rutten, 2015]{Rutten.2015}
+Rutten, R.~J. (2015).
+\newblock {\em Introduction to astrophysical radiative transfer: Lecture
+  notes}.
+
+\bibitem[Stix, 2002]{Stix.2002}
+Stix, M. (2002).
+\newblock {\em The Sun: An Introduction}.
+\newblock Astronomy and Astrophysics Library. Springer, Berlin and Heidelberg,
+  second edition edition.
+
+\bibitem[Uitenbroek, 2020]{UitenbroekNSME.2020}
+Uitenbroek, H. (2020).
+\newblock {\em Polarized Radiative Transfer: Milne-Eddington Inversions
+  Workshop - Lecture notes}.
+\newblock National Solar Observatory.
+
+\bibitem[Weigert et~al., 2006]{Weigert.2006}
+Weigert, A., Wendker, H.~J., and Wisotzki, L. (2006).
+\newblock {\em Astronomie und Astrophysik: Ein Grundkurs}.
+\newblock Lehrbuch Physik. {Wiley-VCH Verlag}, Weinheim, 1. nachdr. der 4.,
+  v{\"o}llig {\"u}berarb. und erw. aufl. edition.
+
+\bibitem[Weng, 2018]{weng2018flow}
+Weng, L. (2018).
+\newblock Flow-based deep generative models.
+\newblock {\em lilianweng.github.io}.
+
+\end{thebibliography}
