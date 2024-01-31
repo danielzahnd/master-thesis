@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis_presentation.aux
+The style file: apalike.bst
+Database file #1: references.bib
+Repeated entry---line 321 of file references.bib
+ : @book{Rutten.2015
+ :                  ,
+I'm skipping whatever remains of this entry
+Warning--empty publisher in Rutten.2015
+You've used 13 entries,
+            1935 wiz_defined-function locations,
+            558 strings with 5835 characters,
+and the built_in function-call counts, 4278 in all, are:
+= -- 409
+> -- 174
+< -- 8
++ -- 56
+- -- 56
+* -- 348
+:= -- 789
+add.period$ -- 36
+call.type$ -- 13
+change.case$ -- 89
+chr.to.int$ -- 13
+cite$ -- 14
+duplicate$ -- 170
+empty$ -- 293
+format.name$ -- 73
+if$ -- 814
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 16
+newline$ -- 64
+num.names$ -- 39
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 93
+quote$ -- 0
+skip$ -- 126
+stack$ -- 0
+substring$ -- 224
+swap$ -- 12
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 1
+while$ -- 31
+width$ -- 0
+write$ -- 162
+(There was 1 error message)
