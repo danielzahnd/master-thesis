@@ -1,2 +1,2 @@
 # presentation
-In this folder, the most up-to-date version of the thesis presentation is stored.
+In this folder, slides for the master thesis presentation are stored.
