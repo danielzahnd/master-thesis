@@ -1,2 +1,2 @@
 # presentation
-In this folder, slides for the master thesis presentation are stored.
+In this folder, slides for the presentation of the master's thesis are stored.
