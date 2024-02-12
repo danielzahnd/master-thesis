@@ -1,6 +1,6 @@
-# version-final
+# text
 
-Final version of the master thesis, consisting of
+This folder contains the final version of the master's thesis, consisting of
 - an abstract,
 - a theory part,
 - a proof of concept chapter,
