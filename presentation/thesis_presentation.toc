@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {3}{Solar physics}{5}{0}{2}
-\beamer@sectionintoc {4}{Normalizing flows}{9}{0}{3}
-\beamer@sectionintoc {5}{Results and discussion}{16}{0}{4}
-\beamer@sectionintoc {6}{Conclusions and outlook}{29}{0}{5}
