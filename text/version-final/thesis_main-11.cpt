@@ -1,1 +1,0 @@
-Visualization of observation $\vect{y}_2$ and the corresponding posterior distribution as obtained by the trained normalizing flow (grey) and MCMC sampling (orange). The blue lines represent the truth, i.e. $\vect{x}_2 = \vect{M}^{-1}(\vect{y}_2)$.^^E^^L 
